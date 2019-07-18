@@ -11,8 +11,15 @@ createdb blog_api_db
 SET JWT_SECRET_KEY=MyKEY
 
 ## Make migration
+Before doing the migration you need to comment thoses lines in app.py<br/>
+#from .views.UserView import user_api as user_blueprint<br/>
+#from .views.BlogView import blogpost_api as blogpost_blueprint<br/>
+#app.register_blueprint(user_blueprint,url_prefix='/api/users')<br/>
+#app.register_blueprint(blogpost_blueprint,url_prefix='/api/blogs')<br/>
 
 When the database is created, you need to make the migration to create the table <br/>
 python manage.py db init <br/>
 python manage.py db migrate <br/>
 python manage.py db upgrade <br/>
+
+And finally, uncomment previous lines of code
